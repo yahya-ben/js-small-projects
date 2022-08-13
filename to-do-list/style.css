@@ -33,8 +33,17 @@ h4 {
   justify-content: space-evenly;
 }
 
-.main_input {
+.input_holder {
   width: 220px;
+  border: solid 1.5px #27ace5;
+  border-radius: 5px;
+  justify-items: center;
+}
+
+.main_input {
+  width: 200px;
+  background-color: none;
+  outline: none;
 }
 
 .main_btn {
