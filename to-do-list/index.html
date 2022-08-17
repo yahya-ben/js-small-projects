@@ -12,16 +12,36 @@
     <title>To Do List</title>
   </head>
   <body>
-    <div class="container">
-      <h4 class="title">My To Do List</h4>
-      <div class="main_row">
-        <div class="input_holder"><input type="text" class="main_input" /></div>
+    <ul id="todos"></ul>
+    <form>
+      <input type="text" name="todo" />
+      <input type="submit" value="Add todo" />
+    </form>
 
-        <input type="button" value="+" class="main_btn" />
-      </div>
-      <div class="fine_line"></div>
-      <div class="other_items"></div>
-    </div>
-    <script src="script.js"></script>
+    <script>
+      // Get DOM elements
+
+      const form = document.querySelector("form");
+      const input = document.querySelector("[name=todo]");
+      const todoList = document.querySelector("#todos");
+
+      // Empty array to represent the elements of the array
+      const todoData = [];
+
+      // Function that updates the actual UI
+      function addTodo(todoText) {
+        // Add this item to array
+        todoData.push(todoText);
+        const li = document.createElement("li");
+        li.innerHTML = todoText;
+        todoList.appendChild(li);
+      }
+
+      // Events
+      form.onsubmit = (event) => {
+        event.preventDefault();
+        addTodo(input.value);
+      };
+    </script>
   </body>
 </html>
